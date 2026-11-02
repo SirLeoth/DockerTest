@@ -14,6 +14,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
+// SQLite-Datenbank automatisch erstellen
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider
+        .GetRequiredService<AppDbContext>();
+
+    db.Database.EnsureCreated();
+}
+
 // POST /api/orders
 app.MapPost("/api/orders", async (
     CreateOrderRequest request,
