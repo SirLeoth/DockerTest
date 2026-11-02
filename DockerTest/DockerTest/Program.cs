@@ -1,9 +1,6 @@
-
 using DockerTest.Data;
 using DockerTest.Models;
 using Microsoft.EntityFrameworkCore;
-using OrderService.Data;
-using OrderService.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
